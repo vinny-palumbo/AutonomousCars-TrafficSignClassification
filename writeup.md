@@ -160,6 +160,7 @@ The code for outputting the top 5 softmax probabilities of each image is located
 
 For the first image, the model is sure that this is a "No passing" sign (probability of 1.0), and the image does contain a "No passing" sign. 
 The top five soft max probabilities were
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.0         			| No passing   									| 
@@ -171,6 +172,7 @@ The top five soft max probabilities were
 
 For the second image, the model is sure that this is a "Go straight or left" sign (probability of 0.99999), and the image does contain a "Go straight or left" sign. 
 The top five soft max probabilities were
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 0.99999      			| Go straight or left							| 
@@ -182,6 +184,7 @@ The top five soft max probabilities were
 
 For the third image, the model is sure that this is a "Speed limit (60km/h)" sign (probability of 0.99999), and the image does contain a "Speed limit (60km/h)" sign. 
 The top five soft max probabilities were
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 0.99999      			| Speed limit (60km/h)							| 
@@ -193,6 +196,7 @@ The top five soft max probabilities were
 
 For the fourth image, the model is sure that this is a "Yield" sign (probability of 1.0), and the image does contain a "Yield" sign. 
 The top five soft max probabilities were
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 1.0         			| Yield    										| 
@@ -204,6 +208,7 @@ The top five soft max probabilities were
 
 For the fifth image, the model is slightly more sure that this is a "Roundabout mandatory" sign (probability of 0.35193) rather than a "Keep right" sign (probability of 0.34193), and the image does contain a "Roundabout mandatory" sign. This "confusion" can be explained by the fact that there are about 8 times more images of "Keep right" sign in the training set than images of "Roundabout mandatory", and the model is biased towards the traffic sign types that are more numerous in the training set. Furthermore, one of the 3 arrows that form the "Roundabout mandatory" sign points right and is thus detected to be part of a "Keep right" sign.
 The top five soft max probabilities were
+
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
 | 0.35193     			| Roundabout mandatory							| 
