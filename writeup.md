@@ -1,7 +1,5 @@
-# **Traffic Sign Recognition** 
+# **Traffic Sign Classification** 
 ---
-
-**Build a Traffic Sign Recognition Project**
 
 The goals / steps of this project are the following:
 * Load the data set (see below for links to the project data set)
@@ -9,8 +7,6 @@ The goals / steps of this project are the following:
 * Design, train and test a model architecture
 * Use the model to make predictions on new images
 * Analyze the softmax probabilities of the new images
-* Summarize the results with a written report
-
 
 [//]: # (Image References)
 
@@ -20,20 +16,10 @@ The goals / steps of this project are the following:
 [image4]: ./writeup-images/accuracies-by-epoch.png "Accuracies throughout the epochs"
 [image5]: ./writeup-images/images-from-web.png "Images from the web"
 
-
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
-
 ---
-### Writeup / README
-
-#### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one. You can submit your writeup as markdown or pdf. You can use this template as a guide for writing the report. The submission includes the project code.
-
-You're reading it! and here is a link to my [project code](https://github.com/vinny-palumbo/AutonomousCars-TrafficSignClassifier/blob/master/Traffic_Sign_Classifier.ipynb)
-
 ### Data Set Summary & Exploration
 
-#### 1. Provide a basic summary of the data set and identify where in your code the summary was done. In the code, the analysis should be done using python, numpy and/or pandas methods rather than hardcoding results manually.
+#### 1. Basic summary of the data set 
 
 The code for this step is contained in the second code cell of the IPython notebook.  
 
@@ -45,7 +31,7 @@ signs data set:
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
 
-#### 2. Include an exploratory visualization of the dataset and identify where the code is in your code file.
+#### 2. Exploratory visualization of the dataset
 
 The code for this step is contained in the third and fourth code cells of the IPython notebook.  
 
@@ -59,7 +45,7 @@ Here is the distribution of the number of each traffic sign type in the training
 
 ### Design and Test a Model Architecture
 
-#### 1. Describe how, and identify where in your code, you preprocessed the image data. What tecniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc.
+#### 1. Preprocessing the image data
 
 The code for this step is contained in the fifth and sixth code cells of the IPython notebook.
 
@@ -71,7 +57,7 @@ Here is a sample of 5 traffic sign images from the training set after grayscalin
 
 I could have used other preprocessing techniques to adjust the brightness of the images that were taken in darker light conditions.
 
-#### 2. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. My final model architecture
 
 The code for my final model is located in the 8th cell of the ipython notebook. 
 
@@ -99,7 +85,7 @@ My final model consisted of the following layers:
 | Softmax				|         										|
 
 
-#### 3. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. How I trained my model
 
 The code for training the model is located in the tenth cell of the ipython notebook. 
 
@@ -107,7 +93,7 @@ To train the model, I used the Adam Optimizer, which is know to have several adv
 
 As for the hyperparameters, I've used a batch size of 128 so that the model trains faster and uses less memory, although it looses some accuracy in estimating the gradient. I've increased the number of epochs from 10 to 101, which increased the validation accuracy from 89% to 95%. Then, I decreased the learning rate by a factor of 3, from 0.001 to 0.0003, which increased the validation accuracy to 96%. Finally, I increased the filter depths of the convolutional layers, which increased the validation accuracy to 97%.
 
-#### 4. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Approach taken for finding a solution
 
 The code for calculating the accuracy of the model is located in the 11th, 12th and 14th cells of the Ipython notebook.
 
@@ -125,9 +111,9 @@ I've chosen the well-known architecture of LeNet-5 for this traffic sign classif
 To make the model more robust and avoid overfitting the training set, I've added dropouts to the fully-connected layers first, and then also to the convolutional layers. I started with dropouts of 50%, but it was taking too long to train so I then set the dropouts to 75%. This gave me a validation accuracy of 91% after 10 epochs. I then increased the number of epochs to 101, and that improved the validation accuracy to 95%. I also decreased the learning rate by a factor of 3, from 0.001 to 0.0003, to optimize the loss minimisation, and that increased the validation accuracy to 96%. Finally, to make the model able to capture more complex patterns, I increased the depth of the first convolutional layer's filter from 6 to 12, and from 16 to 24 for the second convolutional layer's filter. This increased the validation accuracy to 97%.
 
 
-### Test a Model on New Images
+### Test Model on New Images
 
-#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Qualities that might make the traffic sign images that I've found on the web difficult to classify
 
 Here are five German traffic signs that I found on the web:
 
@@ -137,7 +123,7 @@ Qualitatively, all 5 images are pretty standard and should not have any issue be
 
 Quantitavely, the "Roundabout mandatory" traffic sign (the last image) could be difficult to classify because there are not a lot of images of that traffic sign type in the training set. Ideally, we would need to stabilize the distribution of our training set so that it is not biased towards the more numerous traffic sign types.
 
-#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set.
+#### 2. My model's predictions on these new traffic signs 
 
 The code for making predictions on my final model is located in the 17th cell of the Ipython notebook.
 
@@ -154,7 +140,7 @@ Here are the results of the prediction:
 
 The model was able to correctly guess all 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 95.5%
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability.
+#### 3. Top 5 softmax probabilities for each image along with the sign type of each probability.
 
 The code for outputting the top 5 softmax probabilities of each image is located in the 19th cell of the Ipython notebook.
 
